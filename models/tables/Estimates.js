@@ -12,10 +12,6 @@ const Estimates = dataBase.define('estimates',{
         type:DataTypes.INTEGER,
         allowNull: false,
     },
-    task:{
-        type:DataTypes.INTEGER,
-        allowNull: false,
-    },
     notes:{
         type:DataTypes.STRING,
         allowNull: false,

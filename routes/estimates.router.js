@@ -1,12 +1,11 @@
 const express = require('express');
-
+const estimatesController = require('../controllers/estimates.controller');
 
 const estimatesRouter = express.Router();
 
-estimatesRouter.get('/',(req,res)=>{
-    res.json({message:'ESTIMATES'});
-    console.log('teste');
-})
+estimatesRouter.get('/estimates',estimatesController.getEstimates);
+estimatesRouter.get('/tasks',estimatesController.getTasks);
+estimatesRouter.post('/estimate',estimatesController.postEstimate);
 
 module.exports = estimatesRouter;
 
