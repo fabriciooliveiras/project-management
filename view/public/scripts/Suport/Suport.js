@@ -17,4 +17,4 @@ const Suport = new Page({
     },
 });
 
-Suport.render();
+//Suport.render();

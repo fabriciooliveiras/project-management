@@ -23,7 +23,7 @@ Page.prototype.render = function(){
     }
 
     //LOADS THE VIEW CONTENT
-    this.bodyContainer.innerText = this.views[this.currentView].body;
+    this.bodyContainer.appendChild(this.views[this.currentView].body.container);
 
     //DOM CREATION
     this.container.appendChild(this.menuContainer);
@@ -48,7 +48,6 @@ Page.prototype.viewBtnClick = function(view){
     }
 
     this.bodyContainer.innerHTML = '';
-    // this.bodyContainer.appendChild(this.views[this.currentView].body);
-    this.bodyContainer.innerHTML = this.views[this.currentView].body;
+    this.bodyContainer.appendChild(this.views[this.currentView].body.container);
 
 }

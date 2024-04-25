@@ -90,7 +90,7 @@ App.prototype.toggleSideNav = function(){
 //INIT
 const projectMenagement = new App();
 projectMenagement.registerPage(Estimates);
-projectMenagement.registerPage(Suport);
+//projectMenagement.registerPage(Suport);
 
 
 //RENDER
