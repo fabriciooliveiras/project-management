@@ -5,8 +5,7 @@ const Page = function(obj){
     this.currentView = 0;
 }
 Page.prototype.render = function(){
-    this.menuIcon = Util.nodefy(`<li class="page-nav-icon-container nav-open"><span class="page-nav-icon">${this.icon}</span><span class="app-nav-text">${this.name}</span></li>`);
-
+    
     this.container = Util.nodefy('<div class="page-container"></div>');
     this.menuContainer = Util.nodefy('<div class="page-menu-container"></div>');
     this.bodyContainer = Util.nodefy('<div class="page-body-container"></div>');
