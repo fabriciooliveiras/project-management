@@ -5,14 +5,15 @@ const Page = function(obj){
     this.currentView = 0;
 }
 Page.prototype.render = function(){
-    this.menuIcon = Util.nodefy(`<span class="page-menu-icon"><span>${this.icon}</span>${this.name}<span>`);
+    this.menuIcon = Util.nodefy(`<li class="page-nav-icon-container nav-open"><span class="page-nav-icon">${this.icon}</span><span class="app-nav-text">${this.name}</span></li>`);
 
     this.container = Util.nodefy('<div class="page-container"></div>');
     this.menuContainer = Util.nodefy('<div class="page-menu-container"></div>');
     this.bodyContainer = Util.nodefy('<div class="page-body-container"></div>');
 
     for(let i=0;i<this.views.length;i++){
-        this.menuContainer.innerText += `${this.views[i].icon}${this.views[i].title}`;
+        let tempItem = Util.nodefy(`<span class="page-menu-icon" title="${this.views[i].title}">${this.views[i].icon}</span>`)
+        this.menuContainer.appendChild(tempItem);
     }
 
     this.bodyContainer.innerText = this.views[0].body;
