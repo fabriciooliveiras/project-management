@@ -1,14 +1,50 @@
 const data = [{
     id:0,
-    name:'task-0'
+    name:'Key Art - Loading Screen',
+    creator:{img:'',name:'Fabricio'},
+    project:'Project Name',
+    estimate:4,
+    scope:'Character',
+    team:'2D',
+    amount:1,
+    time:'19h',
+    level:'Senior',
+    deliverable:'Concept',
+    notes:'Notes',
+    createdAt:'19/04/2024',
+    updateddAt:'19/04/2024',
 },
 {
     id:1,
-    name:'task-1'
+    name:'Task name',
+    creator:{img:'',name:'Valeria'},
+    project:'Project Name',
+    estimate:4,
+    scope:'Environment',
+    team:'3D',
+    amount:1,
+    time:'20h',
+    level:'Senior',
+    deliverable:'Concept',
+    notes:'Notes',
+    createdAt:'19/04/2024',
+    updateddAt:'19/04/2024',
 },
 {
     id:2,
-    name:'task-2'
+    name:'Task name',
+    creator:{img:'',name:'Ricardo'},
+    project:'Project Name',
+    estimate:4,
+    scope:'Environment',
+    team:'3D',
+    amount:1,
+    time:'20h',
+    level:'Senior',
+    deliverable:'Concept',
+    notes:'Notes',
+    createdAt:'19/04/2024',
+    updateddAt:'19/04/2024',
 }
 ];
 
@@ -25,7 +61,7 @@ TasksView.prototype.render= function(){
         const task = new Task(this.tasks[i]);
         task.render();
 
-        const taskContainer = new Container(task);
+        const taskContainer = new Container({type:'task',id:task.data.id,title:task.data.name,content:[task]});
         taskContainer.render();
 
         this.container.appendChild(taskContainer.container);
