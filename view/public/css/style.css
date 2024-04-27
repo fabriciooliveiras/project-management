@@ -220,7 +220,7 @@ body{
     right: 0.8em;
 }
 .container-body-container{
-    padding: 1.5em 2em;
+    padding: 0 2em;
 }
 /*------------------------------------------CONTAINER COMPONENT------------------------------------------*/
 .task-container{
@@ -228,6 +228,8 @@ body{
     font-weight: 500;
     overflow: hidden;
     border-radius: 0.5em;
+    padding-top:1.5em;
+    font-size: 0.8em;
 }
 .task-header{
     border: 2px solid rgb(200, 200, 200);
@@ -237,14 +239,40 @@ body{
     width: 100%;
     background-color: #fff;
     position: relative;
-    z-index:2;
+    z-index: 2;
 }
 .task-header-text{
     padding: 0.3em 0.5em;
     border-left: 2px solid rgb(200, 200, 200);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    flex: 1;
 }
-.task-header-text:first-child{
-    border-left: 2px solid #000;
+.task-header-text:nth-child(2){
+    border-left: 0px;
+    margin-left: 2.3em;
+    flex: 2;
+    justify-content: flex-start;
+}
+.task-header-toggle-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 0.5em;
+    cursor: pointer;
+    align-self: flex-start;
+    height: 100%;
+    position: absolute;
+}
+.task-header-toggle-btn svg{
+    width:1.3em;
+    height: 1.3em;
+    transform: rotate(180deg);
+}
+.task-header-toggle-btn.rotate svg{
+    transform: rotate(0deg);
 }
 .task-header-text span{
     color:rgb(200, 200, 200);
@@ -253,24 +281,103 @@ body{
     margin-right: 0.5em;
 }
 .task-body-container{
-    transition: all 0.3s;
-    display: flex;
+    padding-left: 1.5em;
+}
+.task-body-container.opened{
+    animation: subTasksOpen 1s forwards;
+}
+@keyframes subTasksOpen{
+    0%{
+        max-height: 0px;
+        opacity: 0;
+    }
+    100%{
+        max-height: 800px;
+        opacity: 1;
+    }
 }
 .task-body-container.closed{
-    transform: translateY(-200px);
-    opacity: 0;
-    animation: subTasksClose 0.3s 0s forwards;
+    animation: subTasksClose 0.3s forwards;
 }
 @keyframes subTasksClose{
+    0%{
+        max-height: 800px;
+        opacity: 1;
+    }
     100%{
-        display:none;
+        max-height: 0;
+        opacity: 0;
     }
 }
 .task-info-container{
-
+    border: 2px solid rgb(200, 200, 200);
+    border-radius: 0.5em;
+    display: flex;
+    width: 100%;
+    background-color: #fff;
+    position: relative;
+    z-index: 2;
+    margin-top: 0.5em;
+}
+.task-info-text{
+    padding: 0.3em 0.5em;
+    border-left: 2px solid rgb(200, 200, 200);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    flex: 1;
+}
+.task-info-text:first-child{
 }
 .task-info-container span{
-
+    color:rgb(200, 200, 200);
+    font-weight: 300;
+    text-transform: uppercase;
+    margin-right: 0.5em;
+}
+/*------------------------------------------VIEW------------------------------------------*/
+.task-pipeline-container{
+    border: 2px solid rgb(200, 200, 200);
+    border-left: 4px solid #000;
+    border-radius: 0.5em;
+    display: flex;
+    width: 100%;
+    background-color: #fff;
+    margin-top: 0.5em;
+}
+.task-pipeline-column{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    align-items: center;
+}
+.task-pipeline-column span{
+    border: 1px solid rgb(200, 200, 200);
+    width: 100%;
+    padding: 0.3em 0.5em;
+    display: flex;
+    justify-content: center;
+}
+.task-pipeline-column:first-child{
+    flex:2;
+}
+.task-pipeline-column:first-child span{
+    border-left:0px;
+    justify-content: flex-start;
+}
+.task-pipeline-column span:first-child{
+    color:rgb(200, 200, 200);
+    font-weight: 300;
+    text-transform: uppercase;
+    border-top:0px;
+    display: flex;
+}
+.task-pipeline-column span:last-child{
+    border-bottom:0px;
+}
+.task-pipeline-column:last-child span{
+    border-right:0px;
 }
 /*------------------------------------------VIEW------------------------------------------*/
 .view-container{

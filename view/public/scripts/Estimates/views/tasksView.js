@@ -13,6 +13,13 @@ const data = [{
     notes:'Notes',
     createdAt:'19/04/2024',
     updateddAt:'19/04/2024',
+    pipeline:[
+        {name:'moodboard',options:1,time:1,feedback:1,risk:1,total:3},
+        {name:'sketch',options:3,time:3,feedback:1,risk:2,total:6},
+        {name:'cleanup',options:1,time:1,feedback:1,risk:1,total:3},
+        {name:'color exploration',options:1,time:1,feedback:1,risk:1,total:3},
+        {name:'render',options:1,time:1,feedback:1,risk:1,total:3},
+    ]
 },
 {
     id:1,
@@ -29,6 +36,13 @@ const data = [{
     notes:'Notes',
     createdAt:'19/04/2024',
     updateddAt:'19/04/2024',
+    pipeline:[
+        {subTask:'moodboard',options:1,time:1,feedback:1,risk:1,total:3},
+        {subTask:'sketch',options:3,time:3,feedback:1,risk:2,total:6},
+        {subTask:'cleanup',options:1,time:1,feedback:1,risk:1,total:3},
+        {subTask:'color exploration',options:1,time:1,feedback:1,risk:1,total:3},
+        {subTask:'render',options:1,time:1,feedback:1,risk:1,total:3},
+    ]
 },
 {
     id:2,
@@ -45,6 +59,13 @@ const data = [{
     notes:'Notes',
     createdAt:'19/04/2024',
     updateddAt:'19/04/2024',
+    pipeline:[
+        {subTask:'moodboard',options:1,time:1,feedback:1,risk:1,total:3},
+        {subTask:'sketch',options:3,time:3,feedback:1,risk:2,total:6},
+        {subTask:'cleanup',options:1,time:1,feedback:1,risk:1,total:3},
+        {subTask:'color exploration',options:1,time:1,feedback:1,risk:1,total:3},
+        {subTask:'render',options:1,time:1,feedback:1,risk:1,total:3},
+    ]
 }
 ];
 
@@ -58,10 +79,12 @@ TasksView.prototype.render= function(){
 
     for (let i = 0; i < this.tasks.length; i++) {
 
-        const task = new Task(this.tasks[i]);
+        const task = new Task({type:'task',content:this.tasks[i]});
         task.render();
+        const task2 = new Task({type:'task',content:this.tasks[i]});
+        task2.render();
 
-        const taskContainer = new Container({type:'task',id:task.data.id,title:task.data.name,content:[task]});
+        const taskContainer = new Container({type:'task',id:task.data.id,title:task.data.name,content:[task,task2]});
         taskContainer.render();
 
         this.container.appendChild(taskContainer.container);
